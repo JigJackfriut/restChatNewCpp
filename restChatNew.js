@@ -157,3 +157,37 @@ function updateUsers(result) {
 
 // call the getUsers function every 5 seconds to update the user list
 setInterval(getUsers, 5000);
+
+// func to register user
+
+document.getElementById('submitButton').addEventListener("click", registerUser);
+function registerUser(){
+	console.log("registerUser() running");
+	username = document.getElementById('user-name').value;
+	email = document.getElementById('user-email').value;
+	pass = document.getElementById('user-password').value;
+	fetch(baseUrl+'/chat/register/'+username +'/'+email+'/'+pass, {
+        method: 'get'
+    })
+    .then (response => response.json() )
+    .then (data =>completeRegisterUser(data))
+    .catch(error => {
+        {alert("Error: Something went wrong:"+error);}
+    })
+}
+
+function completeRegisterUser(results){
+	var status = results['status'];
+	console.log(status)
+	if (status != "success") {
+		alert("Username or Email already exists! Password must be more than 6 characters");
+		leaveSession();
+		return;
+	}
+	var user = results['user'];
+	alert("Registration Successful");
+	console.log("Registered:"+user);
+	username = document.getElementById('user-name').value = '';
+	email = document.getElementById('user-email').value = '';
+	pass = document.getElementById('user-password').value = '';
+}
