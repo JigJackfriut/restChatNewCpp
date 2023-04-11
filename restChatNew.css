@@ -24,3 +24,24 @@ h2, h3, p {
     font-size: 82%;
     overflow:scroll;
 }
+
+// table for userlist
+#userlist {
+  margin: 10px;
+}
+
+#userlist table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#userlist th,
+#userlist td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+#userlist th {
+  background-color: #f2f2f2;
+}
