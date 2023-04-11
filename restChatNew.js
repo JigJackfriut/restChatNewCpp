@@ -127,3 +127,20 @@ function leaveSession(){
 	clearInterval(inthandle);
 }
 
+// to update user list
+
+function getUsers() {
+	fetch(baseUrl+'/chat/userlist', {
+        method: 'get'
+    })
+    .then (response => response.json() )
+    .then (data =>updateUsers(data))
+    .catch(error => {
+        {alert("Error: Something went wrong:"+error);}
+    })
+}
+function updateUsers(result) {
+	userList = result["userList"];
+	//console.log("user list printed");
+	document.getElementById('userlist').innerHTML = userList;
+}
