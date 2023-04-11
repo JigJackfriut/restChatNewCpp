@@ -6,6 +6,17 @@ var baseUrl = 'http://3.134.78.249:5005';
 var state="off";
 var myname="";
 var inthandle;
+$('#size').hover( function () {
+  $('#drag').fadeOut(500);
+});
+
+$('#size').mousemove( function () {
+  $('#device').css('width', $(this).val());
+});
+
+$('#size').change(function () {
+  $('#device').css('width', $(this).val());
+});
 
 /* Start with text input and status hidden */
 document.getElementById('chatinput').style.display = 'none';
