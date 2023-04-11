@@ -38,41 +38,109 @@
         	<span class="nav-item active" id="user" aria-current="page">Not Logged In</span>
         </li>
       </ul>
-      <span id=register>
+       <span id=register>
+	  <!-- Buttons for Register and Login -->
       <form id="register" class="d-flex">
         <input class="form-control me-2" type="text" id="yourname" placeholder="Username" aria-label="User">
         <input class="form-control me-2" type="password" id="yourpass" placeholder="Password" aria-label="User">
+		<button class="btn btn-outline-success" type="button" data-bs-toggle="modal" data-bs-target="#inviteModal">Invite Friend</button>
         <button class="btn btn-outline-success" id="login-btn"  type="button">Login</button>
         <button class="btn btn-outline-success" type="button" data-bs-toggle="modal" data-bs-target="#loginModal">Register</button>
       </form>
       </span>
       <span id=leave>
       <form class="d-flex">
+		<button class="btn btn-outline-success" type="button" data-bs-toggle="modal" data-bs-target="#inviteModal">Invite Friend</button>
         <button class="btn btn-outline-success" id="leave-btn" type="button" >Leave</button>      
       </form>
       </span>
     </div>
+  </div
+	  
+     <!-- Invite Friend Modal -->
+<div class="modal fade" id="inviteModal" tabindex="-1" aria-labelledby="LoginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Invite Friend</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+		<!-- Email Form Inputs -->
+          <i class="fas fa-user prefix grey-text"></i>
+          <input type="email" id="friend-email" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="orangeForm-name">Their Email</label>
+        </div>
+        <div class="md-form mb-5">
+          <i class="fas fa-envelope prefix grey-text"></i>
+          <input type="text" id="email-subject" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="orangeForm-email">Subject Line</label>
+        </div>
+
+        <div class="md-form mb-4">
+          <i class="fas fa-lock prefix grey-text"></i>
+          <input type="text" id="email-message" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="orangeForm-pass">Message</label>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" id = "sendEmailButton" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalToggle2">Send!</button>
+      </div>
+    </div>
   </div>
+</div>
+<!-- Email Sent Modal -->
+<div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Email was Sent
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-bs-target="#inviteModal" data-bs-toggle="modal" data-bs-dismiss="modal">Dismiss</button>
+      </div>
+    </div>
+  </div>
+</div>
 </nav>
 
-<div class="container">
-    <h1>A Microservice based chat system!</h1>
-    <span id="status">
-      Chat Members: 
-      <span id="members"></span>
-    </span>
-    <p>
 
-	
-    <h2>Chat box</h2>
-    <div class="scrollabletextbox" id="chatBox"></div>
-    <span id="chatinput">
-    <textarea id="message" class="form-control" rows="1" cols="60" placeholder="message"></textarea><br />
-    <input type="button" value="Send" id="send-btn" /></p>
-    </span>
+<!-- Chat Box and Output of Users -->
+<!-- https://getbootstrap.com/docs/4.1/layout/grid/ -->
+<div class="container">
+	<div class = "row">
+		<div class = "col" id = "drop-area">
+		</div>
+		<div class="col" id = "chatbox">
+			<h1><center>Sofdev Chat</center></h1>
+			<p>
+			<h2><center>Chat box</center></h2>
+			<div class="scrollabletextbox" id="chatBox"></div>
+			<span id="chatinput">
+			<textarea id="message" class="form-control" rows="1" cols="60" placeholder="message"></textarea><br />
+			<input type="button" value="Send" id="send-btn" /></p>
+			</span>
+		</div>
+		<div class="col">
+			<span id="status">
+			  <p class="text-center">Chat Members</p>
+			  <span id="members">
+			  <p id = "userlist" class="text-center"> </p>
+			  </span>
+			</span>
+		</div>
+	</div>
+	<div class = "row">
+	</div>
 </div>
 
-<!-- Login Modal -->
+<!-- Registration Modal -->
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="LoginModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -82,33 +150,34 @@
       </div>
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
+		<!-- Registration Form Inputs -->
           <i class="fas fa-user prefix grey-text"></i>
-          <input type="text" id="orangeForm-name" class="form-control validate">
+          <input type="text" id="user-name" class="form-control validate">
           <label data-error="wrong" data-success="right" for="orangeForm-name">Your name</label>
         </div>
         <div class="md-form mb-5">
           <i class="fas fa-envelope prefix grey-text"></i>
-          <input type="email" id="orangeForm-email" class="form-control validate">
+          <input type="email" id="user-email" class="form-control validate">
           <label data-error="wrong" data-success="right" for="orangeForm-email">Your email</label>
         </div>
 
         <div class="md-form mb-4">
           <i class="fas fa-lock prefix grey-text"></i>
-          <input type="password" id="orangeForm-pass" class="form-control validate">
+          <input type="password" id="user-password" class="form-control validate">
           <label data-error="wrong" data-success="right" for="orangeForm-pass">Your password</label>
         </div>
 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save</button>
+        <button type="button" id = "submitButton" class="btn btn-primary">Submit</button>
       </div>
     </div>
   </div>
 </div>
 	    <h1>the complete user list</h1>
 
-	<div id="userlist"></div>
+	
 
 
   <head>
