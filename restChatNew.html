@@ -55,50 +55,34 @@
   </div>
 </nav>
 
-<div class="container">
-    <h1>A Microservice based chat system!</h1>
-    <span id="status">
-      Chat Members: 
-      <span id="members"></span>
-    </span>
-    <p>
-
-	
-    <h2>Chat box</h2>
-    <div class="scrollabletextbox" id="chatBox"></div>
-    <span id="chatinput">
-    <textarea id="message" class="form-control" rows="1" cols="60" placeholder="message"></textarea><br />
-    <input type="button" value="Send" id="send-btn" /></p>
-    </span>
-</div>
-
-<div class="chat_window">
-    <div class="top_menu">
-        <div class="buttons">
-            <div class="button close"></div>
-            <div class="button minimize"></div>
-            <div class="button maximize"></div>
-        </div>
-        <div class="title">Chat</div>
-    </div>
-    <ul class="messages"></ul>
-    <div class="bottom_wrapper clearfix">
-        <div class="message_input_wrapper">
-            <input class="message_input" placeholder="Type your message here..." />
-        </div>
-        <div class="send_message">
-            <div class="icon"></div>
-            <div class="text">Send</div>
-        </div>
-    </div>
-</div>
-<div class="message_template">
-    <li class="message">
-        <div class="avatar"></div>
-        <div class="text_wrapper">
-            <div class="text"></div>
-        </div>
-    </li>
+<div class="chat-container">
+	<ul class="chat">
+		<li class="message left">
+			<img class="logo" src="https://randomuser.me/api/portraits/women/17.jpg" alt="">
+			<p>I'm hungry!</p>
+		</li>
+		<li class="message right">
+			<img class="logo" src="https://randomuser.me/api/portraits/men/67.jpg" alt="">
+			<p>Hi hungry, nice to meet you. I'm Dad.</p>
+		</li>
+		<li class="message left">
+			<img class="logo" src="https://randomuser.me/api/portraits/women/17.jpg" alt="">
+			<p>DAD! I'm serious!</p>
+		</li>
+		<li class="message right">
+			<img class="logo" src="https://randomuser.me/api/portraits/men/67.jpg" alt="">
+			<p>I thought your name was hungry...?</p>
+		</li>
+		<li class="message left">
+			<img class="logo" src="https://randomuser.me/api/portraits/women/17.jpg" alt="">
+			<p>ARE YOU KIDDING ME?</p>
+		</li>
+		<li class="message right">
+			<img class="logo" src="https://randomuser.me/api/portraits/men/67.jpg" alt="">
+			<p>No, I'm Dad...</p>
+		</li>
+	</ul>
+	<input type="text" class="text_input" placeholder="Message..."/>
 </div>
 	
 	
