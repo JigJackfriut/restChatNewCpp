@@ -184,10 +184,8 @@ function completeRegisterUser(results){
 		leaveSession();
 		return;
 	}
-	var user = results['user'];
-	alert("Registration Successful");
-	console.log("Registered:"+user);
-	username = document.getElementById('user-name').value = '';
-	email = document.getElementById('user-email').value = '';
-	pass = document.getElementById('user-password').value = '';
+	alert("Registration successful!");
+	document.getElementById('user-name').value = '';
+	document.getElementById('user-email').value = '';
+	document.getElementById('user-password').value = '';
 }
