@@ -1,12 +1,3 @@
-/* Some styles for text */
-h2, h3, p {
-    font-family: Verdana, sans-serif;
-}
-
-.small {
-    font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif;
-    font-size: 60%;
-}
 
 /* Text Box attributes */
 @import url('https://fonts.googleapis.com/css?family=Lato');
