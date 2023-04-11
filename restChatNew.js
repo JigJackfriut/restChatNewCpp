@@ -160,7 +160,7 @@ setInterval(getUsers, 5000);
 
 // func to register user
 
-document.getElementById('saveButton').addEventListener("click", registerUser);
+document.getElementById('submitButton').addEventListener("click", registerUser);
 function registerUser(){
 	console.log("registerUser() running");
 	username = document.getElementById('user-name').value;
@@ -184,8 +184,10 @@ function completeRegisterUser(results){
 		leaveSession();
 		return;
 	}
-	alert("Registration successful!");
-	document.getElementById('user-name').value = '';
-	document.getElementById('user-email').value = '';
-	document.getElementById('user-password').value = '';
+	var user = results['user'];
+	alert("Registration Successful");
+	console.log("Registered:"+user);
+	username = document.getElementById('user-name').value = '';
+	email = document.getElementById('user-email').value = '';
+	pass = document.getElementById('user-password').value = '';
 }
