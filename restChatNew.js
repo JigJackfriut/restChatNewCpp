@@ -6,17 +6,6 @@ var baseUrl = 'http://3.134.78.249:5005';
 var state="off";
 var myname="";
 var inthandle;
-$('#size').hover( function () {
-  $('#drag').fadeOut(500);
-});
-
-$('#size').mousemove( function () {
-  $('#device').css('width', $(this).val());
-});
-
-$('#size').change(function () {
-  $('#device').css('width', $(this).val());
-});
 
 /* Start with text input and status hidden */
 document.getElementById('chatinput').style.display = 'none';
@@ -171,7 +160,7 @@ setInterval(getUsers, 5000);
 
 // func to register user
 
-document.getElementById('submitButton').addEventListener("click", registerUser);
+document.getElementById('saveButton').addEventListener("click", registerUser);
 function registerUser(){
 	console.log("registerUser() running");
 	username = document.getElementById('user-name').value;
@@ -195,10 +184,8 @@ function completeRegisterUser(results){
 		leaveSession();
 		return;
 	}
-	var user = results['user'];
-	alert("Registration Successful");
-	console.log("Registered:"+user);
-	username = document.getElementById('user-name').value = '';
-	email = document.getElementById('user-email').value = '';
-	pass = document.getElementById('user-password').value = '';
+	alert("Registration successful!");
+	document.getElementById('user-name').value = '';
+	document.getElementById('user-email').value = '';
+	document.getElementById('user-password').value = '';
 }
