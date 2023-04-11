@@ -130,17 +130,30 @@ function leaveSession(){
 // to update user list
 
 function getUsers() {
-	fetch(baseUrl+'/chat/userlist', {
-        method: 'get'
-    })
-    .then (response => response.json() )
-    .then (data =>updateUsers(data))
-    .catch(error => {
-        {alert("Error: Something went wrong:"+error);}
-    })
+  fetch(baseUrl+'/chat/userlist', {
+    method: 'get'
+  })
+  .then(response => response.json())
+  .then(data => updateUsers(data))
+  .catch(error => {
+    alert("Error: Something went wrong:" + error);
+  })
 }
+
 function updateUsers(result) {
-	userList = result["userList"];
-	//console.log("user list printed");
-	document.getElementById('userlist').innerHTML = userList;
+  let userList = result["userList"];
+  let tableBody = document.querySelector('#userlist tbody');
+  
+  // clear the table body before adding new rows
+  tableBody.innerHTML = '';
+  
+  // add each user to the table as a new row
+  for (let user of userList) {
+    let row = tableBody.insertRow();
+    let cell = row.insertCell();
+    cell.textContent = user;
+  }
 }
+
+// call the getUsers function every 5 seconds to update the user list
+setInterval(getUsers, 5000);
