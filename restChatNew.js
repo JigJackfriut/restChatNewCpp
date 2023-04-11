@@ -160,7 +160,7 @@ setInterval(getUsers, 5000);
 
 // func to register user
 
-document.getElementById('submitButton').addEventListener("click", registerUser);
+document.getElementById('saveButton').addEventListener("click", registerUser);
 function registerUser(){
 	console.log("registerUser() running");
 	username = document.getElementById('user-name').value;
